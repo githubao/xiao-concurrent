@@ -8,11 +8,10 @@
 @time: 2019-05-28 16:41
 """
 
-import time
 import asyncio
 import logging
-import traceback
 import random
+import time
 
 RETRY_TIMES = 3
 
@@ -43,7 +42,7 @@ class MultiRun:
         loop.run_until_complete(asyncio.wait(tasks))
 
         # time elapsed
-        self.logger.info('elapsed: {}'.format(now() - start))
+        self.logger.info('take total elapsed: {:.6f}'.format(now() - start))
 
         for task in tasks:
             yield task.result()
